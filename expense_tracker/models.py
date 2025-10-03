@@ -52,11 +52,18 @@ class Expense:
             hour = datetime.strptime(hour, "%H:%M").time()
         self.hour = hour if hour else datetime.now().time()
 
+         # Convert string to enum if necessary
+        if isinstance(motive, str):
+            try:
+                motive = ExpenseMotive(motive.lower())
+            except ValueError:
+                motive = None  # Invalid motive, set to None
+        self.motive = motive
+
         self.id = str(uuid.uuid4())
         self.item = item
         self.category = category
         self.amount = amount
-        self.motive = motive
         self.note = note
     
     def to_dict(self) -> dict:

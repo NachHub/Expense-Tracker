@@ -31,3 +31,4 @@ def save_expenses(expenses):
         temp_file.replace(DATA_FILE)
     except Exception as e:
         raise RuntimeError(f"Could not save data: {e}")
+    
