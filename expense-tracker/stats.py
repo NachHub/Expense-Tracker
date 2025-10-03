@@ -2,6 +2,8 @@ from .models import Expense
 from collections import defaultdict
 from .models import ExpenseMotive
 
+"""Modify these functiones to also manage different quantities of items """
+
 def summary(expenses):
     if not expenses:
         print("No expenses recorded yet.")
